@@ -15,8 +15,8 @@ const MONGO_URI = process.env.MONGO_URI;
 
 
 //Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/bug", bugRoutes);
+// app.use("/api/auth", authRoutes);
+// app.use("/api/bug", bugRoutes);
 
 
 //mongodb connected
