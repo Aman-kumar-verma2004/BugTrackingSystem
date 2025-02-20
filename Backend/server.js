@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-
+const authRoutes = require( './routes/authRoutes');
+const bugRoutes = require( './routes/bugRoutes');
 
 const app = express();
 dotenv.config();
@@ -15,8 +16,8 @@ const MONGO_URI = process.env.MONGO_URI;
 
 
 //Routes
-// app.use("/api/auth", authRoutes);
-// app.use("/api/bug", bugRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/bug", bugRoutes);
 
 
 //mongodb connected

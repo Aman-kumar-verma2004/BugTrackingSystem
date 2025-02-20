@@ -1,7 +1,7 @@
 // Model what bugs contain?
 const mongoose = require('mongoose');
 
-const bugSchema = mongoose.Schema({
+const bugSchema = new mongoose.Schema({
     title : String,
     description : String,
     Status : {type : String, enum : ["Open", "In progress", "Resolved"], default : "Open"},
@@ -10,3 +10,6 @@ const bugSchema = mongoose.Schema({
 }, {timestamps : true});
 
 export default mongoose.model("Bug", bugSchema);
+
+// mongoose.Schema.Types.ObjectId :- This syntax is used to make a relationship with diffrent collection
+//ref :"User" - means that the ObjectId is from User Collection.
