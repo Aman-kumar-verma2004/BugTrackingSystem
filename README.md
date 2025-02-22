@@ -30,7 +30,7 @@
 
  Installation & Setup
    1. Clone the Repository
-      git clone https://github.com/Aman-kumar-verma2004/bug-tracker.git
+      git clone [https://github.com/Aman-kumar-verma2004/bug-tracker.git](https://github.com/Aman-kumar-verma2004/BugTrackingSystem.git)
       cd bug-tracker
 
 
