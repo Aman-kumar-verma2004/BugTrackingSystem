@@ -8,8 +8,8 @@ function Steps() {
   return (
     <div>
       <section className="py-16 text-center text-white mt-65">
-        <h1 className='text-6xl'>How it Works ?</h1>
-        <div className="space-y-10">
+        <h1 className='text-6xl font-bold'>How it Works ?</h1>
+        <div className="space-y-10 mt-20">
       <div className="flex items-center justify-center gap-10">
         <div className="text-left w-1/2">
           <h3 className="text-3xl font-semibold">1. Sign Up</h3>
