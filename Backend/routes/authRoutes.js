@@ -7,15 +7,27 @@ const router = express.Router();
 
 //User Registration
 router.post("/register", async (req, res) => {
-    const {name, email, password, role} = req.body;
-    const hashPassword = await bcrypt.hash(password, 10);
-    try{
-        const user = User.create({name, email, password : hashPassword, role});
-        res.status(200).send("User registered")
-    }catch {
-        res.status(400).json ({ err : "Email Already Exist" });
+    try {
+        const { name, email, password, role } = req.body;
+
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "Email already registered!" });
+        }
+
+        
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+       
+        const newUser = new User({ name, email, password: hashedPassword, role });
+        await newUser.save();
+
+        res.status(201).json({ message: "User registered successfully!" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error!" });
     }
-})
+});
 
 //User Login
 router.post("/login", async (req, res) => {
@@ -26,7 +38,7 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if(!isMatch) return res.status(400).json({ error : "Invalid credentials"});
 
-    const token = jwt.sign({id: user._id , role : user.role }, process.env.JWT_SECRET , {expiresIn : "2h"})
+    const token = jwt.sign({id: user._id , role : user.role }, process.env.JWT_SECRET , {expiresIn : "1h"})
     res.json({user, token})
 })
 

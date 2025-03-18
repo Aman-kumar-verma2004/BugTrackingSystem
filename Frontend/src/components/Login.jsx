@@ -1,10 +1,14 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import DashBoard from "./DashBoard";
+
 function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +29,7 @@ function Login() {
 
       // Store token (Assuming JWT-based auth)
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
       alert("Login Successful!");
       navigate("/dashboard"); // Redirect user after successful login
 
@@ -58,7 +63,7 @@ function Login() {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">Login</button>
+          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded cursor-pointer">Login</button>
         </form>
         <p className="mt-4 text-center">
           Don't have an account? <Link to="/register" className="text-blue-500">Sign Up</Link>

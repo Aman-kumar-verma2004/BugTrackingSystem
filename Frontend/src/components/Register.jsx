@@ -28,6 +28,9 @@ function Register() {
         throw new Error(data.message || "Registration failed");
       }
 
+      localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
       alert("Registration Successful!");
       navigate("/login"); // Redirect to login page after successful registration
 
@@ -82,15 +85,15 @@ function Register() {
             >
               <option value="admin">Admin</option>
               <option value="tester">Tester</option>
-              <option value="developer">Developer</option>
+              <option value="Developer">Developer</option>
             </select>
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
+          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded cursor-pointer">
             Sign Up
           </button>
         </form>
         <p className="mt-4 text-center">
-          Already have an account? <Link to="/login" className="text-blue-500">Login</Link>
+          Already have an account? <Link to="/login" className="text-blue-500 cursor-pointer">Login</Link>
         </p>
       </div>
     </div>
