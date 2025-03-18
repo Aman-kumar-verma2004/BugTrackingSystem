@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import DashBoard from "./DashBoard";
+
 
 function Login() {
 
@@ -39,9 +39,9 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="bg-black text-white border-1 p-8 rounded-lg shadow-lg w-96">
+        <h2 className="text-2xl font-bold mb-6 text-center text-green-600">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Email</label>
@@ -63,10 +63,11 @@ function Login() {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded cursor-pointer">Login</button>
+          <button type="submit" onClick={handleSubmit}
+            onTouchStart={handleSubmit} className="w-full bg-green-900 text-white p-2 rounded cursor-pointer">Login</button>
         </form>
         <p className="mt-4 text-center">
-          Don't have an account? <Link to="/register" className="text-blue-500">Sign Up</Link>
+          Don't have an account? <Link to="/register" className="text-green-500">Sign Up</Link>
         </p>
       </div>
     </div>

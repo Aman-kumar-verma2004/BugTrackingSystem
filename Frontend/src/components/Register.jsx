@@ -40,9 +40,9 @@ function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="bg-black text-white border-1 p-8 rounded-lg shadow-lg w-96">
+        <h2 className="text-2xl font-bold mb-6 text-center text-green-600">Register</h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -80,7 +80,7 @@ function Register() {
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="w-full p-2 border rounded bg-white"
+              className="w-full p-2 border rounded bg-black"
               required
             >
               <option value="admin">Admin</option>
@@ -88,12 +88,13 @@ function Register() {
               <option value="Developer">Developer</option>
             </select>
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded cursor-pointer">
+          <button type="submit" onClick={handleSubmit}
+  onTouchStart={handleSubmit} className="w-full bg-green-900 text-white p-2 rounded cursor-pointer">
             Sign Up
           </button>
         </form>
         <p className="mt-4 text-center">
-          Already have an account? <Link to="/login" className="text-blue-500 cursor-pointer">Login</Link>
+          Already have an account? <Link to="/login" className="text-green-500 cursor-pointer">Login</Link>
         </p>
       </div>
     </div>
