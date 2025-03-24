@@ -29,7 +29,7 @@ function Register() {
       }
 
       localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       alert("Registration Successful!");
       navigate("/login"); // Redirect to login page after successful registration

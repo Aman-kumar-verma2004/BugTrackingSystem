@@ -4,9 +4,12 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoutes = require( './routes/authRoutes');
 const bugRoutes = require( './routes/bugRoutes');
+const uploadRoutes = require('./routes/uploadRoutes')
 
 const app = express();
 dotenv.config();
+
+
 //middlewares
 app.use(cors());
 app.use(express.json());
@@ -18,7 +21,8 @@ const MONGO_URI = process.env.MONGO_URI;
 //Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/bug", bugRoutes);
-
+app.use('/uploads', express.static("uploads"))
+app.use('/api', uploadRoutes)
 
 //mongodb connected
 mongoose.connect(process.env.MONGO_URI)

@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import FileUploads from './FileUploads';
 
 function DashBoard() {
 
@@ -38,6 +39,7 @@ function DashBoard() {
       <div className="text-center mt-10">
         <h2 className="text-3xl font-bold text-black">Welcome, {user?.name || "User"}!</h2>
         <p className="text-lg text-gray-900 mt-2">Manage your bugs efficiently.</p>
+        <FileUploads />
       </div>
     </div>
     </div>
