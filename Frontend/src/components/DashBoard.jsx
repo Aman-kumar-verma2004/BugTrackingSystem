@@ -1,13 +1,13 @@
 import React, {useState, useEffect } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
-
+import { io } from 'socket.io-client'
 
 function DashBoard() {
 
     const[user, setUser] = useState()
     const[issues, setIssues] = useState([]);
     const[loading, setLoading] = useState(true);
-
+    const socket = io('http://localhost:5000')
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,6 +25,9 @@ function DashBoard() {
           setLoading(false)
         }
         fetchIssue();
+
+
+
     },[])
 
     useEffect(() => {
